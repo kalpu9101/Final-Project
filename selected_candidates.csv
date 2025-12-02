@@ -1,0 +1,3 @@
+Gender,Percent_MBA,Percent_SSC,Percent_HSC,Percent_Degree,Percentile_ET,Experience_Yrs,Specialization_MBA,Marks_Communication,Marks_BOCA,Marks_Projectwork,Board_HSC,Stream_HSC,Course_Degree,Gender-B,Degree_Engg,placed_prob,placed_pred
+M,76,88,85,72,68,1,Marketing & Finance,82,79,88,Others,Science,Engineering,0,1,0.9103787878787879,1
+F,62,75,70,65,55,0,Marketing & HR,60,58,64,ISC,Commerce,Commerce,1,0,0.8545448179271709,1
