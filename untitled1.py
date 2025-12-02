@@ -7,8 +7,8 @@ Original file is located at
     https://colab.research.google.com/drive/1-C9odkMSi5BiLyoN5dX0olvZQ2fBUI7x
 """
 
-from google.colab import drive
-drive.mount('/content/drive/')
+data_path = "data/selected_candidates.csv"
+model_path = "models/rf_best_model.joblib"
 
 import pandas as pd
 import numpy as np
