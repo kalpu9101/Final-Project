@@ -303,3 +303,34 @@ print("Exported selected_candidates.csv")
 from google.colab import files
 files.download("selected_candidates.csv")
 files.download("rf_best_model.joblib")
+
+
+import streamlit as st
+import joblib
+import json
+from pathlib import Path
+
+BASE = Path(__file__).parent  # if using a single-file Streamlit app
+
+@st.cache_resource
+def load_model(model_path=BASE/"rf_model.pkl", cols_path=BASE/"feature_columns.json"):
+    # 1) make sure files exist
+    if not model_path.exists():
+        raise FileNotFoundError(f"Model file not found: {model_path}")
+    if not cols_path.exists():
+        raise FileNotFoundError(f"Feature columns file not found: {cols_path}")
+
+    # 2) load model
+    model = joblib.load(model_path)
+
+    # 3) load feature columns
+    with open(cols_path, "r", encoding="utf-8") as f:
+        feature_cols = json.load(f)
+
+    return model, feature_cols
+
+try:
+    model, feature_cols = load_model()
+except Exception as e:
+    st.error(f"Failed to load model or feature list: {e}")
+    st.stop()
